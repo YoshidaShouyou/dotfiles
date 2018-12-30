@@ -1,0 +1,304 @@
+;; CREDIT
+;; I used the base of this configuration from zen4869 and
+;; changed it to my personal taste
+;; the original post can be found on http://dotshare.it/8286
+;; enjoy
+
+[settings]
+throttle-output = 5
+throttle-output-for = 10
+throttle-input-for = 30
+compositing-background = over
+compositing-foreground = source
+compositing-overline = over
+compositing-underline = over
+compositing-border = over
+
+[bar/bar]
+bottom = true
+width = 100%
+height = 23
+radius = 0
+fixed-center = true
+
+background = #000000
+foreground = #f9f9f9
+
+;;;border-left-size = 3
+border-left-color = #00000000
+;;;border-top-size = 3
+border-top-color = #00000000
+;;;border-bottom-size = 3
+border-bottom-color = #00000000
+spacing = 2
+
+font-0 = Product Sans:size=10.5:antialias=true;3
+font-1 = HanaMinB:fontformat=truetype:size=10:antialias=true;3
+font-2 = FontAwesome:pixelsize=10;3
+font-3 = HanaMinA:fontformat=truetype:size=10:antialias=true;3
+font-4 = Hack:pixelsize=15;3
+
+modules-left = i3 p cpu p memory p temperature p filesystem p volume p mpd
+; p6
+modules-right = wireless-network p battery p backlight p date p time p
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+tray-position = right
+tray-background transparent
+tray-padding = 5
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+format-padding = 2
+index-sort = true
+;;;pin-workspaces = true
+;;;wrapping-scroll = true
+;;;strip-wsnumbers = true
+enable-click = true
+;;;scroll-up = i3wm-wsnext
+;;;scroll-down = i3wm-wsprev
+click-left = i3wm-wsprev
+;;;click-right = i3wm-wsnext
+label-mode = %mode%
+label-mode-padding = 0
+label-mode-foreground = #BBBBBB
+label-indicator-padding = 1
+;;;label-indicator-background = #BBBBBB
+label-indicator-underline = #FF0000
+;----------------focused  
+label-focused = %name%
+label-focused-foreground transparent
+label-focused-padding = 1
+label-focused-underline = #d8d8d8
+;----------------unfocused 
+label-unfocused = %name%
+label-unfocused-foreground = #747474
+label-unfocused-padding = 1
+label-unfocused-underline = #747474
+;----------------visible 
+label-visible = %name
+label-visible-foregroud = #888888
+label-visible-padding = 1
+;;;label-visible-background = #BBBBBB
+label-visible-underline = #FF0000
+;----------------urgent     
+label-urgent = %name%
+label-urgent-padding = 1
+label-urgent-background = #FF0000
+label-urgent-foreground = #FFFFFF
+label-urgent-underline = #FF0000
+
+[module/p]
+type = custom/text
+content = " | "
+content-font = 2
+
+[module/cpu]
+type = internal/cpu
+interval = 1
+format =  <label>
+format-padding = 2
+format-foreground = #f9f9f9
+label-format = %percentage%
+
+[module/memory]
+type = internal/memory
+interval = 1
+format =  <label>
+format-foreground = #f9f9f9
+format-padding = 2
+;label = RAM %gb_used%/%gb_free%
+label-format = %percentage_used%
+
+[module/filesystem]
+type = internal/fs
+interval = 10
+mount-0 = /
+;mount-1 = /home
+;mount-2 = /invalid/mountpoint
+format-mounted =   <label-mounted>
+format-mounted-foreground = #f9fl9f9
+format-mounted-padding = 2
+label-mounted = %percentage_free%%
+;label-unmounted = %mountpoint%: not mounted
+label-unmounted-foreground = #ffffff
+
+[module/wireless-network]
+type = internal/network
+interface = wlp2s0
+interval = 1.0
+;udspeed-minwidth = 0
+accumulate-stats = true
+format-connected =  <label-connected>
+format-connected-padding = 2
+format-connected-foreground = #f9f9f9
+label-connected = %essid% : %local_ip% 
+label-connected-foreground = #f9f9f9
+format-disconnected =   <label-disconnected>
+format-disconnected-padding = 2
+format-disconnected-foreground = #f9f9f9
+label-disconnected = Offline
+label-disconnected-foreground = #f9f9f9
+
+[module/mpd]
+type = internal/mpd
+interval = 1
+;label =  <label-song> <icon-[random|repeat|repeatone]> <bar-progress>
+host = 127.0.0.1
+port = 6601
+;format-online = <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>   <label-time> <label-song> <bar-progress>
+format-online = <icon-prev> <toggle> <icon-next> <label-song>
+format-online-foreground = #f9f9f9
+format-online-padding = 2
+format-offline =   <label-offline>
+format-offline-foreground = #f9f9f9
+format-offline-padding = 2
+label-offline = Off
+label-offline-foreground = #f9f9f9
+label-song = %title%
+;----------------Awesome >                    
+icon-play = 
+icon-play-foreground = #f9f9f9
+icon-pause = 
+icon-pause-foreground = #f9f9f9
+;icon-stop = 
+icon-prev = 
+icon-prev-foreground = #f9f9f9
+icon-next = 
+icon-next-foreground = #f9f9f9
+;icon-seekb = 
+;icon-seekf = 
+;icon-random = 
+;icon-repeat = 
+;icon-repeatone = 
+;bar-progress-width = 15
+;bar-progress-indicator =
+;bar-progress-fill = 
+;bar-progress-empty = 
+;bar-progress-foreground-0 = #d8d8d8
+;bar-progress-empty-foreground = #444444
+
+[module/volume]
+type = internal/pulseaudio
+master-mixer = Master
+format-volume-padding = 2
+format-volume =   <label-volume>
+format-volume-foreground = #f9f9f9
+label-volume-format = %percentage%
+format-muted =  X  <label-muted>
+format-muted-padding = 2
+format-muted-foreground = #f9f9f9
+label-muted = Muted
+label-muted-foreground = #f9f9f9
+;bar-volume-gradient = false
+
+[module/battery]
+type = internal/battery
+full-at = 100%
+;----------------$ ls -1 /sys/class/power_supply/
+battery = BAT0
+adapter = AC
+poll-interval = 5
+;time-format = %H:%M
+format-charging =    <label-charging>
+format-charging-foreground = #f9f9f9
+format-charging-padding = 2
+format-discharging =   <label-discharging>
+format-discharging-foreground = #f9f9f9
+format-discharging-padding = 2
+format-full =    <label-full>
+format-full-foreground = #f9f9f9
+format-full-padding = 2
+label-charging = %percentage%%
+label-discharging = %percentage%%
+label-full = %percentage%%
+label-charging-foreground = #f9f9f9
+label-discharging-foreground = #f9f9f9
+label-full-foreground = #f9f9f9
+bar-capacity-indicator =
+bar-capacity-width = 15
+;bar-capacity-foreground-0 = #f9f9f9
+bar-capacity-fill = 
+bar-capacity-empty = 
+bar-capacity-empty-foreground = #d8d8d8
+
+[module/temperature]
+type = internal/temperature
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 0.5
+
+; Thermal zone to use
+; To list all the zone types, run 
+; $ for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
+; Default: 0
+thermal-zone = 0
+
+; Full path of temperature sysfs path
+; Use `sensors` to find preferred temperature source, then run
+; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
+; to find path to desired file
+; Default reverts to thermal zone setting
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
+warn-temperature = 65
+units = true
+format = <ramp> <label>
+format-padding = 2
+
+format-warn = <ramp> <label-warn>
+
+label = %temperature-c%
+
+; Available tokens:
+;   %temperature% (deprecated)
+;   %temperature-c%   (default, temperature in °C)
+;   %temperature-f%   (temperature in °F)
+label-warn = %temperature-c%
+label-warn-foreground = #f00
+
+; Requires the <ramp> tag
+; The icon selection will range from 0 to `warn-temperature`
+; with the current temperature as index.
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = #f9f9f9
+
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+format = <ramp> <label>
+format-padding = 2
+label = %percentage%%
+
+;Only applies if <ramp> is used
+ramp-0 = ￼
+ramp-1 = ￼
+ramp-2 = 
+ramp-3 = 
+
+[module/date]
+type = internal/date
+interval = 1
+date = %a, %d %b %Y
+format =    <label>
+format-padding = 2
+format-foreground = #f9f9f9
+label = %date%
+label-foreground = #f9f9f9
+;label-font = 3
+
+[module/time]
+type = internal/date
+interval = 1
+time = %H:%M:%S
+format =    <label>
+format-padding = 2
+format-foreground = #f9f9f9
+label = %time%
+label-foreground = #f9f9f9
+;label-font = 3
