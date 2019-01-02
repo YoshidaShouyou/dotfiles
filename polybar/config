@@ -79,7 +79,7 @@ label-unfocused-foreground = #747474
 label-unfocused-padding = 1
 label-unfocused-underline = #747474
 ;----------------visible 
-label-visible = %name
+label-visible = %name%
 label-visible-foregroud = #888888
 label-visible-padding = 1
 ;;;label-visible-background = #BBBBBB
