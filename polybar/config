@@ -21,8 +21,8 @@ height = 23
 radius = 0
 fixed-center = true
 
-background = #000000
-foreground = #f9f9f9
+background = #d3d3d3
+foreground = #000000
 
 ;;;border-left-size = 3
 border-left-color = #00000000
@@ -30,7 +30,7 @@ border-left-color = #00000000
 border-top-color = #00000000
 ;;;border-bottom-size = 3
 border-bottom-color = #00000000
-spacing = 2
+spacing = 1
 
 font-0 = Product Sans:size=10.5:antialias=true;3
 font-1 = HanaMinB:fontformat=truetype:size=10:antialias=true;3
@@ -51,8 +51,8 @@ tray-padding = 5
 
 [module/i3]
 type = internal/i3
-format = <label-state> <label-mode>
-format-padding = 2
+format = <label-state><label-mode>
+format-padding = 1
 index-sort = true
 ;;;pin-workspaces = true
 ;;;wrapping-scroll = true
@@ -63,30 +63,30 @@ enable-click = true
 click-left = i3wm-wsprev
 ;;;click-right = i3wm-wsnext
 label-mode = %mode%
-label-mode-padding = 0
+;label-mode-padding = 0.5
 label-mode-foreground = #BBBBBB
-label-indicator-padding = 1
+;label-indicator-padding = 1
 ;;;label-indicator-background = #BBBBBB
 label-indicator-underline = #FF0000
 ;----------------focused  
 label-focused = %name%
 label-focused-foreground transparent
-label-focused-padding = 1
+;label-focused-padding = 1
 label-focused-underline = #d8d8d8
 ;----------------unfocused 
 label-unfocused = %name%
 label-unfocused-foreground = #747474
-label-unfocused-padding = 1
+;label-unfocused-padding = 1
 label-unfocused-underline = #747474
 ;----------------visible 
 label-visible = %name%
 label-visible-foregroud = #888888
-label-visible-padding = 1
+;label-visible-padding = 1
 ;;;label-visible-background = #BBBBBB
 label-visible-underline = #FF0000
 ;----------------urgent     
 label-urgent = %name%
-label-urgent-padding = 1
+;;label-urgent-padding = 1
 label-urgent-background = #FF0000
 label-urgent-foreground = #FFFFFF
 label-urgent-underline = #FF0000
@@ -100,16 +100,16 @@ content-font = 2
 type = internal/cpu
 interval = 1
 format =  <label>
-format-padding = 2
-format-foreground = #f9f9f9
+;;;format-padding = 1
+format-foreground = #313131
 label-format = %percentage%
 
 [module/memory]
 type = internal/memory
 interval = 1
 format =  <label>
-format-foreground = #f9f9f9
-format-padding = 2
+format-foreground = #313131 
+;;;format-padding = 1
 ;label = RAM %gb_used%/%gb_free%
 label-format = %percentage_used%
 
@@ -119,9 +119,9 @@ interval = 10
 mount-0 = /
 ;mount-1 = /home
 ;mount-2 = /invalid/mountpoint
-format-mounted =   <label-mounted>
-format-mounted-foreground = #f9fl9f9
-format-mounted-padding = 2
+format-mounted =  <label-mounted>
+format-mounted-foreground = #313131
+;;;format-mounted-padding = 1
 label-mounted = %percentage_free%%
 ;label-unmounted = %mountpoint%: not mounted
 label-unmounted-foreground = #ffffff
@@ -133,15 +133,15 @@ interval = 1.0
 ;udspeed-minwidth = 0
 accumulate-stats = true
 format-connected =  <label-connected>
-format-connected-padding = 2
-format-connected-foreground = #f9f9f9
+;;;format-connected-padding = 1
+format-connected-foreground = #313131
 label-connected = %essid% : %local_ip% 
-label-connected-foreground = #f9f9f9
-format-disconnected =   <label-disconnected>
-format-disconnected-padding = 2
-format-disconnected-foreground = #f9f9f9
+label-connected-foreground = #313131
+format-disconnected = <label-disconnected>
+;;;format-disconnected-padding = 1
+format-disconnected-foreground = #313131
 label-disconnected = Offline
-label-disconnected-foreground = #f9f9f9
+label-disconnected-foreground = #313131
 
 [module/mpd]
 type = internal/mpd
@@ -150,25 +150,25 @@ interval = 1
 host = 127.0.0.1
 port = 6601
 ;format-online = <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>   <label-time> <label-song> <bar-progress>
-format-online = <icon-prev> <toggle> <icon-next> <label-song>
-format-online-foreground = #f9f9f9
-format-online-padding = 2
-format-offline =   <label-offline>
-format-offline-foreground = #f9f9f9
-format-offline-padding = 2
+format-online = <icon-prev><toggle><icon-next> <label-song>
+format-online-foreground = #313131
+;;;format-online-padding = 1
+format-offline =  <label-offline>
+format-offline-foreground = #313131
+;;;format-offline-padding = 1
 label-offline = Off
-label-offline-foreground = #f9f9f9
+label-offline-foreground = #313131
 label-song = %title%
 ;----------------Awesome >                    
 icon-play = 
-icon-play-foreground = #f9f9f9
+icon-play-foreground = #313131
 icon-pause = 
-icon-pause-foreground = #f9f9f9
+icon-pause-foreground = #313131
 ;icon-stop = 
 icon-prev = 
-icon-prev-foreground = #f9f9f9
+icon-prev-foreground = #313131
 icon-next = 
-icon-next-foreground = #f9f9f9
+icon-next-foreground = #313131
 ;icon-seekb = 
 ;icon-seekf = 
 ;icon-random = 
@@ -176,7 +176,7 @@ icon-next-foreground = #f9f9f9
 ;icon-repeatone = 
 ;bar-progress-width = 15
 ;bar-progress-indicator =
-;bar-progress-fill = 
+bar-progress-fill = 
 ;bar-progress-empty = 
 ;bar-progress-foreground-0 = #d8d8d8
 ;bar-progress-empty-foreground = #444444
@@ -184,15 +184,15 @@ icon-next-foreground = #f9f9f9
 [module/volume]
 type = internal/pulseaudio
 master-mixer = Master
-format-volume-padding = 2
-format-volume =   <label-volume>
-format-volume-foreground = #f9f9f9
+;;;format-volume-padding = 1
+format-volume =  <label-volume>
+format-volume-foreground = #313131
 label-volume-format = %percentage%
-format-muted =  X  <label-muted>
-format-muted-padding = 2
-format-muted-foreground = #f9f9f9
+format-muted = X <label-muted>
+;;;format-muted-padding = 1
+format-muted-foreground = #313131
 label-muted = Muted
-label-muted-foreground = #f9f9f9
+label-muted-foreground = #313131
 ;bar-volume-gradient = false
 
 [module/battery]
@@ -203,24 +203,24 @@ battery = BAT0
 adapter = AC
 poll-interval = 5
 ;time-format = %H:%M
-format-charging =    <label-charging>
-format-charging-foreground = #f9f9f9
-format-charging-padding = 2
-format-discharging =   <label-discharging>
-format-discharging-foreground = #f9f9f9
-format-discharging-padding = 2
-format-full =    <label-full>
-format-full-foreground = #f9f9f9
-format-full-padding = 2
+format-charging =   <label-charging>
+format-charging-foreground = #313131
+;;;format-charging-padding = 1 
+format-discharging =  <label-discharging>
+format-discharging-foreground = #313131
+;;;format-discharging-padding = 1
+format-full =   <label-full>
+format-full-foreground = #313131
+;;;format-full-padding = 1
 label-charging = %percentage%%
 label-discharging = %percentage%%
 label-full = %percentage%%
-label-charging-foreground = #f9f9f9
-label-discharging-foreground = #f9f9f9
-label-full-foreground = #f9f9f9
+label-charging-foreground = #313131
+label-discharging-foreground = #313131
+label-full-foreground = #313131
 bar-capacity-indicator =
 bar-capacity-width = 15
-;bar-capacity-foreground-0 = #f9f9f9
+;bar-capacity-foreground-0 = #313131
 bar-capacity-fill = 
 bar-capacity-empty = 
 bar-capacity-empty-foreground = #d8d8d8
@@ -246,10 +246,10 @@ thermal-zone = 0
 hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
 warn-temperature = 65
 units = true
-format = <ramp> <label>
-format-padding = 2
+format = <ramp><label>
+;;;format-padding = 1
 
-format-warn = <ramp> <label-warn>
+format-warn = <ramp><label-warn>
 
 label = %temperature-c%
 
@@ -266,18 +266,18 @@ label-warn-foreground = #f00
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
-ramp-foreground = #f9f9f9
+ramp-foreground = #313131
 
 [module/backlight]
 type = internal/backlight
 card = intel_backlight
-format = <ramp> <label>
-format-padding = 2
+format = <ramp><label>
+;;;format-padding = 1
 label = %percentage%%
 
 ;Only applies if <ramp> is used
-ramp-0 = ￼
-ramp-1 = ￼
+ramp-0 = 
+ramp-1 = 
 ramp-2 = 
 ramp-3 = 
 
@@ -285,20 +285,20 @@ ramp-3 = 
 type = internal/date
 interval = 1
 date = %a, %d %b %Y
-format =    <label>
-format-padding = 2
-format-foreground = #f9f9f9
+format =   <label>
+;;;format-padding = 1
+format-foreground = #313131
 label = %date%
-label-foreground = #f9f9f9
+label-foreground = #313131
 ;label-font = 3
 
 [module/time]
 type = internal/date
 interval = 1
 time = %H:%M:%S
-format =    <label>
-format-padding = 2
-format-foreground = #f9f9f9
+format =   <label>
+;;;format-padding = 1
+format-foreground = #313131
 label = %time%
-label-foreground = #f9f9f9
+label-foreground = #313131
 ;label-font = 3

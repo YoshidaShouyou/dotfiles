@@ -7,8 +7,8 @@ set $mod Mod4
 ########
 # FONT #
 ########
-font pango:monospace 11
-#font pango:DejaVu Sans Mono 8 for FullHD
+font pango:Hack 12
+#font pango:DejaVu Sans Mono 12
 
 ###########
 # WINDOWS #
@@ -23,7 +23,7 @@ new_float normal
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec st
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -46,11 +46,11 @@ bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+Bindsym $mod+Shift+K Move Down
+Bindsym $mod+Shift+L Move Up
+Bindsym $mod+Shift+Semicolon Move Right
 
-# alternatively, you can use the cursor keys:
+# Alternatively, You Can Use The cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -169,15 +169,14 @@ bindsym $mod+r mode "resize"
 # AUTOSTART #
 #############
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec --no-startup-id pamac-tray
+#exec --no-startup-id pamac-tray
 exec --no-startup-id setxkbmap de neo
-exec --no-startup-id compton -b
-exec --no-startup-id feh --bg-scale /usr/share/backgrounds
-exec --no-startup-id wal -R
+#exec --no-startup-id compton -b
+exec --no-startup-id xrdb .Xresources
+#exec --no-startup-id wal -R
 exec --no-startup-id mpd
 exec --no-startup-id nm-applet
-exec --no-startup-id xautolock -time 30 -locker 'i3lock-fancy -gp'
-
+exec --no-startup-id xautolock -time 30 -locker 'slock'
 ##########
 # COLORS #
 ##########
@@ -189,10 +188,10 @@ set_from_resource $fg foreground
 #set_from_resource $term_color0	color0
 
 #class		border  backgr txt indicator childbrdr
-client.focused  $fg    $bg     $fg $bg    $fg
-client.urgent   $fg    $bg     $fg $bg    $fg
+client.focused  $fg    $bg     $fg	$bg    	$fg
+client.urgent   $fg    $bg     $fg 	$bg    	$fg
 
-client.background $bg
+client.background $fg
 
 ############	
 # BINDINGS #
@@ -203,8 +202,8 @@ client.background $bg
 bindsym $mod+d exec dmenu_run -nb "$bg" -nf "$fg" -sb "$fg" -sf "$bg"
 
 # BACKLIGHT
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5
 # if xbacklight doesnt work: light -A 10; light -U 10
 
 # MUSIC
@@ -222,7 +221,8 @@ bindsym XF86AudioMute exec pulseaudio-ctl mute
 
 bindsym $mod+F6 exec qutebrowser
 bindsym $mod+F4 exec st -e 'ncmpcpp'
-bindsym Print exec --no-startup-id i3-scrot
+bindsym $mod+Shift+Return exec emacs --font hack
+bindsym Print exec --no-startup-id scrot
 
 ########
 # GAPS #
@@ -235,4 +235,3 @@ gaps outer 5
 #Smart Gaps/Borders (gaps/borders used if more than 1 container)
 smart_gaps on
 smart_borders on
-
