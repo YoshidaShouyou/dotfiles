@@ -23,7 +23,7 @@ new_float normal
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec st
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -170,9 +170,10 @@ bindsym $mod+r mode "resize"
 #############
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #exec --no-startup-id pamac-tray
+exec --no-startup-id feh --bg-scale wallpapers/nostalgia.jpg
 exec --no-startup-id setxkbmap de neo
 #exec --no-startup-id compton -b
-exec --no-startup-id xrdb .Xresources
+exec --no-startup-id xrdb -merge .Xresources
 #exec --no-startup-id wal -R
 exec --no-startup-id mpd
 exec --no-startup-id nm-applet
@@ -202,8 +203,8 @@ client.background $fg
 bindsym $mod+d exec dmenu_run -nb "$bg" -nf "$fg" -sb "$fg" -sf "$bg"
 
 # BACKLIGHT
-bindsym XF86MonBrightnessUp exec light -A 5
-bindsym XF86MonBrightnessDown exec light -U 5
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 # if xbacklight doesnt work: light -A 10; light -U 10
 
 # MUSIC
@@ -212,16 +213,15 @@ bindsym XF86AudioPrev exec mpc prev --port 6601
 bindsym XF86AudioPlay exec mpc toggle --port 6601
 bindsym XF86AudioPause exec mpc toggle --port 6601
 bindsym XF86AudioStop exec mpc stop --port 6601
-
 bindsym XF86AudioRaiseVolume exec pulseaudio-ctl up
 bindsym XF86AudioLowerVolume exec pulseaudio-ctl down
 bindsym XF86AudioMute exec pulseaudio-ctl mute
 
 # FKEYS 
 
-bindsym $mod+F6 exec qutebrowser
+bindsym $mod+F6 exec firefox-bin
 bindsym $mod+F4 exec st -e 'ncmpcpp'
-bindsym $mod+Shift+Return exec emacs --font hack
+bindsym $mod+Shift+Return exec emacs
 bindsym Print exec --no-startup-id scrot
 
 ########

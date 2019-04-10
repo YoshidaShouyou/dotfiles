@@ -32,11 +32,10 @@ border-top-color = #00000000
 border-bottom-color = #00000000
 spacing = 1
 
-font-0 = Product Sans:size=10.5:antialias=true;3
-font-1 = HanaMinB:fontformat=truetype:size=10:antialias=true;3
-font-2 = FontAwesome:pixelsize=10;3
-font-3 = HanaMinA:fontformat=truetype:size=10:antialias=true;3
-font-4 = Hack:pixelsize=15;3
+font-0 = Hack:pixelsize=11;3
+font-1 = Font Awesome 5 Free: pixelsize=10;3
+font-2 = Font Awesome 5 Free Solid:pixelsize=10;3
+font-3 = Font Awesome 5 Brands:pixelsize=10;3
 
 modules-left = i3 p cpu p memory p temperature p filesystem p volume p mpd
 ; p6
@@ -159,27 +158,16 @@ format-offline-foreground = #313131
 label-offline = Off
 label-offline-foreground = #313131
 label-song = %title%
-;----------------Awesome >                    
+;----------------Awesome >           
 icon-play = 
 icon-play-foreground = #313131
 icon-pause = 
 icon-pause-foreground = #313131
-;icon-stop = 
+
 icon-prev = 
 icon-prev-foreground = #313131
 icon-next = 
 icon-next-foreground = #313131
-;icon-seekb = 
-;icon-seekf = 
-;icon-random = 
-;icon-repeat = 
-;icon-repeatone = 
-;bar-progress-width = 15
-;bar-progress-indicator =
-bar-progress-fill = 
-;bar-progress-empty = 
-;bar-progress-foreground-0 = #d8d8d8
-;bar-progress-empty-foreground = #444444
 
 [module/volume]
 type = internal/pulseaudio
@@ -203,10 +191,10 @@ battery = BAT0
 adapter = AC
 poll-interval = 5
 ;time-format = %H:%M
-format-charging =   <label-charging>
+format-charging = <animation-charging><label-charging>
 format-charging-foreground = #313131
 ;;;format-charging-padding = 1 
-format-discharging =  <label-discharging>
+format-discharging = <animation-discharging><label-discharging>
 format-discharging-foreground = #313131
 ;;;format-discharging-padding = 1
 format-full =   <label-full>
@@ -218,12 +206,24 @@ label-full = %percentage%%
 label-charging-foreground = #313131
 label-discharging-foreground = #313131
 label-full-foreground = #313131
-bar-capacity-indicator =
-bar-capacity-width = 15
-;bar-capacity-foreground-0 = #313131
-bar-capacity-fill = 
-bar-capacity-empty = 
-bar-capacity-empty-foreground = #d8d8d8
+
+; Only applies if <animation-charging> is used
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+; Framerate in milliseconds
+animation-charging-framerate = 850
+
+; Only applies if <animation-discharging> is used
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+; Framerate in milliseconds
+animation-discharging-framerate = 850
 
 [module/temperature]
 type = internal/temperature
@@ -276,15 +276,15 @@ format = <ramp><label>
 label = %percentage%%
 
 ;Only applies if <ramp> is used
-ramp-0 = 
+ramp-0 = 
 ramp-1 = 
-ramp-2 = 
+ramp-2 = 
 ramp-3 = 
 
 [module/date]
 type = internal/date
 interval = 1
-date = %a, %d %b %Y
+date = %d.%m.%Y
 format =   <label>
 ;;;format-padding = 1
 format-foreground = #313131
