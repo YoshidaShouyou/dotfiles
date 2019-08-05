@@ -2,11 +2,28 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 
+;;(require 'use-package)
+
+;;(dolist (package '(use-package))
+;;  (unless (package-installed-p package)
+;;   (package-install package)))
+
+
+;(use-package auctex :ensure t)
+;(use-package yasnippet :ensure t)
+;(use-package yasnippet-snippets :ensure t)
+;(use-package ivy :ensure t)
+;(use-package company :ensure t)
+;(use-package magit :ensure t)
+;(use-package color-theme-modern :ensure t)
+
+;; yasnippet
 (add-to-list 'load-path
 	     "~/.emacs.d/plugins/yasnippet")
 (require 'yasnippet)
 (yas-global-mode 1)
 
+;; ivy
 (require 'ivy)
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
